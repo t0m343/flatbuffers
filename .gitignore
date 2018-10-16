@@ -30,6 +30,7 @@
 **/Release/**
 **/RelWithDebInfo/**
 **/x64/ #build artifacts from VS
+build/
 build.xml
 local.properties
 project.properties
