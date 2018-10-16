@@ -2,6 +2,12 @@ cmake_minimum_required(VERSION 2.8)
 
 project(FlatBuffers)
 
+option(Install_Local "Use the local install path" 1)
+if(Install_Local)
+	IF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+		set(CMAKE_INSTALL_PREFIX "$ENV{LOCAL_CMAKE_INSTALL}/${CMAKE_SYSTEM_NAME}" CACHE PATH "For Android to find" FORCE)
+	ENDIF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+endif()
 # NOTE: Code coverage only works on Linux & OSX.
 option(FLATBUFFERS_CODE_COVERAGE "Enable the code coverage build option." OFF)
 option(FLATBUFFERS_BUILD_TESTS "Enable the build of tests and samples." ON)
