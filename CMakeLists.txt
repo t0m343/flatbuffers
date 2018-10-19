@@ -8,6 +8,9 @@ if(Install_Local)
 		set(CMAKE_INSTALL_PREFIX "$ENV{LOCAL_CMAKE_INSTALL}/${CMAKE_SYSTEM_NAME}" CACHE PATH "For Android to find" FORCE)
 	ENDIF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 endif()
+
+set(CMAKE_BUILD_TYPE Release)
+
 # NOTE: Code coverage only works on Linux & OSX.
 option(FLATBUFFERS_CODE_COVERAGE "Enable the code coverage build option." OFF)
 option(FLATBUFFERS_BUILD_TESTS "Enable the build of tests and samples." ON)
