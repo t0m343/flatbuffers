@@ -332,6 +332,8 @@ if(FLATBUFFERS_INSTALL)
       NAMESPACE flatbuffers::
       DESTINATION ${FB_CMAKE_DIR}
     )
+    
+    add_library(flatbuffers::flatbuffers ALIAS flatbuffers)
   endif()
 
   if(FLATBUFFERS_BUILD_FLATC)
@@ -348,6 +350,8 @@ if(FLATBUFFERS_INSTALL)
       DESTINATION ${FB_CMAKE_DIR}
       CONFIGURATIONS Release
     )
+    
+    add_executable(flatbuffers::flatc ALIAS flatc)
   endif()
 
   if(FLATBUFFERS_BUILD_SHAREDLIB)
@@ -368,12 +372,14 @@ if(FLATBUFFERS_INSTALL)
       )
     endif()
 
-  install(
+    install(
       EXPORT FlatbuffersSharedTargets
       FILE FlatbuffersSharedTargets.cmake
       NAMESPACE flatbuffers::
       DESTINATION ${FB_CMAKE_DIR}
     )
+    
+    add_library(flatbuffers::flatbuffers_shared ALIAS flatbuffers_shared)
   endif()
 endif()
 
